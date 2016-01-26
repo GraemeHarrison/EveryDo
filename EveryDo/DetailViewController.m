@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () 
 
 @end
 
@@ -32,7 +32,7 @@
         
         self.detailTitleLabel.text = toDoObject.title;
         self.detailPriorityLabel.text = toDoObject.priorityNum;
-        self.detailDescriptionLabel.text = toDoObject.descript;
+        self.detailDescriptionTextView.text = toDoObject.descript;
     }
 }
 

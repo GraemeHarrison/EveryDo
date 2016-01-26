@@ -81,7 +81,7 @@
         // Use the selected index path to get the object it was displaying
         Todo *selectedToDo = self.objects[indexPath.row];
         // Pass that to our new view controller
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
         [controller setDetailItem: selectedToDo];
         controller.detailItem = selectedToDo;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;

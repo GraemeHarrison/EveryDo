@@ -37,7 +37,6 @@
     } else if (textField == self.descriptionInput){
         [self.descriptionInput resignFirstResponder];
     }
-    
     return YES;
 }
 
