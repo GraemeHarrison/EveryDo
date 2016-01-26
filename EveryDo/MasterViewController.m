@@ -150,4 +150,13 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    if (fromIndexPath != toIndexPath ) {
+        Todo *toDoObject = [self.objects objectAtIndex:fromIndexPath.row];
+        [self.objects removeObjectAtIndex:fromIndexPath.row];
+        [self.objects insertObject:toDoObject atIndex:toIndexPath.row];
+        [tableView reloadData];
+    }
+}
+
 @end
