@@ -16,6 +16,8 @@
 		2EF21FB21C57D5670025C0A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF21FB01C57D5670025C0A3 /* LaunchScreen.storyboard */; };
 		2EF21FBD1C57D5670025C0A3 /* EveryDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF21FBC1C57D5670025C0A3 /* EveryDoTests.m */; };
 		2EF21FC81C57D5670025C0A3 /* EveryDoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF21FC71C57D5670025C0A3 /* EveryDoUITests.m */; };
+		2EF21FD71C57D6CB0025C0A3 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF21FD61C57D6CB0025C0A3 /* Todo.m */; };
+		2EF21FDA1C57E7310025C0A3 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF21FD91C57E7310025C0A3 /* ToDoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		2EF21FC31C57D5670025C0A3 /* EveryDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EveryDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF21FC71C57D5670025C0A3 /* EveryDoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EveryDoUITests.m; sourceTree = "<group>"; };
 		2EF21FC91C57D5670025C0A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF21FD51C57D6CB0025C0A3 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		2EF21FD61C57D6CB0025C0A3 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		2EF21FD81C57E7310025C0A3 /* ToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoCell.h; sourceTree = "<group>"; };
+		2EF21FD91C57E7310025C0A3 /* ToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 				2EF21FA61C57D5670025C0A3 /* MasterViewController.m */,
 				2EF21FA81C57D5670025C0A3 /* DetailViewController.h */,
 				2EF21FA91C57D5670025C0A3 /* DetailViewController.m */,
+				2EF21FD51C57D6CB0025C0A3 /* Todo.h */,
+				2EF21FD61C57D6CB0025C0A3 /* Todo.m */,
+				2EF21FD81C57E7310025C0A3 /* ToDoCell.h */,
+				2EF21FD91C57E7310025C0A3 /* ToDoCell.m */,
 				2EF21FAB1C57D5670025C0A3 /* Main.storyboard */,
 				2EF21FAE1C57D5670025C0A3 /* Assets.xcassets */,
 				2EF21FB01C57D5670025C0A3 /* LaunchScreen.storyboard */,
@@ -275,10 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF21FD71C57D6CB0025C0A3 /* Todo.m in Sources */,
 				2EF21FA41C57D5670025C0A3 /* AppDelegate.m in Sources */,
 				2EF21FA71C57D5670025C0A3 /* MasterViewController.m in Sources */,
 				2EF21FA11C57D5670025C0A3 /* main.m in Sources */,
 				2EF21FAA1C57D5670025C0A3 /* DetailViewController.m in Sources */,
+				2EF21FDA1C57E7310025C0A3 /* ToDoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

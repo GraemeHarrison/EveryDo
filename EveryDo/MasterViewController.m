@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "Todo.h"
+#import "ToDoCell.h"
 
 @interface MasterViewController ()
 
@@ -24,6 +26,17 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    self.objects = [[NSMutableArray alloc] init];
+    Todo *partyHard = [[Todo alloc] initWithTitle:@"Party Hard" description:@"Just party, dude" priorityNum:@"1"];
+    Todo *installHotTub = [[Todo alloc] initWithTitle:@"Install Hot Tub" description:@"Buy a hot tub and install it" priorityNum:@"2"];
+    Todo *bossOut = [[Todo alloc] initWithTitle:@"Boss Out" description:@"Be a boss and boss out" priorityNum:@"3"];
+    Todo *flossOnEm = [[Todo alloc] initWithTitle:@"Floss On Em" description:@"Keep flossin' on 'em" priorityNum:@"4"];
+    Todo *moonWalk = [[Todo alloc] initWithTitle:@"Moon Walk" description:@"Walk on the moon" priorityNum:@"5"];
+    Todo *walkDog = [[Todo alloc] initWithTitle:@"Walk Dog" description:@"Let dog out for poop" priorityNum:@"6"];
+
+    [self.objects addObjectsFromArray:@[partyHard, installHotTub, bossOut, flossOnEm, moonWalk, walkDog]];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,10 +82,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ToDoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+//    NSDate *object = self.objects[indexPath.row];
+//    cell.textLabel.text = [object description];
+    
+
+    Todo *currentToDo = self.objects[indexPath.row];
+    
+    cell.titleLabel.text = currentToDo.title;
+    cell.descriptionLabel.text = currentToDo.descript;
+    cell.priorityLabel.text = currentToDo.priorityNum;
     return cell;
 }
 
