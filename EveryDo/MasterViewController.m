@@ -15,6 +15,8 @@
 @interface MasterViewController () <InputViewControllerDelegate>
 
 @property NSMutableArray *objects;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipe;
+
 @end
 
 @implementation MasterViewController
@@ -23,7 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
+    [self.tableView addGestureRecognizer:self.swipe];
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -54,6 +58,19 @@
     [self performSegueWithIdentifier:@"showInput" sender:self];
 }
 
+- (IBAction)swipeGesture:(UISwipeGestureRecognizer *)sender {
+    CGPoint location = [sender locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    Todo *selectedToDo = self.objects[indexPath.row];
+    
+    if (selectedToDo.isComplete == NO) {
+        selectedToDo.isComplete = YES;
+    } else {
+        selectedToDo.isComplete = NO;
+    }
+    [self.tableView reloadData];
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -61,11 +78,8 @@
         
         // Get the selected index path
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.objects[indexPath.row];
-        
         // Use the selected index path to get the object it was displaying
         Todo *selectedToDo = self.objects[indexPath.row];
-        
         // Pass that to our new view controller
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem: selectedToDo];
@@ -96,11 +110,19 @@
 //    cell.textLabel.text = [object description];
 
     Todo *currentToDo = self.objects[indexPath.row];
-    
-    cell.titleLabel.text = currentToDo.title;
-    cell.descriptionLabel.text = currentToDo.descript;
-    cell.priorityLabel.text = currentToDo.priorityNum;
+    if (currentToDo.isComplete == NO) {
+        cell.titleLabel.text = currentToDo.title;
+        cell.descriptionLabel.text = currentToDo.descript;
+        cell.priorityLabel.text = currentToDo.priorityNum;
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        NSDictionary* attributes = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+        NSAttributedString* attributedString = [[NSAttributedString alloc] initWithString:currentToDo.title attributes:attributes];
+        cell.titleLabel.attributedText = attributedString;
+    }
     return cell;
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

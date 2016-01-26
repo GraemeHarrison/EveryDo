@@ -17,7 +17,7 @@
         _title = title;
         _descript = descript;
         _priorityNum = num;
-        _isCompleted = NO;
+        _isComplete = NO;
     }
     return self;
 }

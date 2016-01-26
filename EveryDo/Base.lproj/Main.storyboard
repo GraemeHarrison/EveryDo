@@ -34,17 +34,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IR-Be-Crt">
-                                <rect key="frame" x="20" y="97" width="560" height="21"/>
+                                <rect key="frame" x="20" y="97" width="560" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="T0p-nZ-djk"/>
-                                    <constraint firstAttribute="height" constant="21" id="h3e-lY-BLr"/>
+                                    <constraint firstAttribute="height" constant="40" id="h3e-lY-BLr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDh-sr-mlA">
-                                <rect key="frame" x="20" y="205" width="560" height="375"/>
+                                <rect key="frame" x="20" y="224" width="560" height="356"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="560" id="TxD-tz-heD"/>
@@ -65,7 +65,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUQ-QZ-a01">
-                                <rect key="frame" x="20" y="151" width="560" height="21"/>
+                                <rect key="frame" x="20" y="170" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="cfP-jh-z4L"/>
                                     <constraint firstAttribute="height" constant="21" id="zMv-IF-Fhi"/>
@@ -167,10 +167,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
                     <connections>
+                        <outlet property="swipe" destination="Dph-2z-zex" id="pW3-kz-fj7"/>
                         <segue destination="dc3-Sw-yeO" kind="presentation" identifier="showInput" id="Ghu-zh-XY2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Dph-2z-zex">
+                    <connections>
+                        <action selector="swipeGesture:" destination="7bK-jq-Zjz" id="pkN-ML-qjW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="720" y="-630"/>
         </scene>

@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *descript;
 @property (nonatomic, strong) NSString *priorityNum;
-@property (nonatomic, assign) BOOL isCompleted;
+@property (nonatomic, assign) BOOL isComplete;
 
 -(instancetype)initWithTitle:(NSString *)title description:(NSString *)descript priorityNum:(NSString*)num;
 
