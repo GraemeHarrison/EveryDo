@@ -161,6 +161,8 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+
+// Manually rearrange rows
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     if (fromIndexPath != toIndexPath ) {
         Todo *toDoObject = [self.objects objectAtIndex:fromIndexPath.row];

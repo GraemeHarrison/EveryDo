@@ -18,8 +18,18 @@
         _descript = descript;
         _priorityNum = num;
         _isComplete = NO;
+        _deadline = [NSDate date];
     }
     return self;
 }
+
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        _deadline = [[NSDate alloc]init];
+//    }
+//    return self;
+//}
 
 @end

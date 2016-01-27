@@ -49,11 +49,28 @@
 
 - (IBAction)doneButton:(UIButton *)sender {
     self.toDoObject =[[Todo alloc]init];
-    self.toDoObject.title = self.titleInput.text;
-    self.toDoObject.priorityNum = self.priorityInput.text;
-    self.toDoObject.descript = self.descriptionInput.text;
+
+    if ([self.titleInput.text isEqualToString:@""]) {
+        self.toDoObject.title = @"New Task";
+    } else {
+        self.toDoObject.title = self.titleInput.text;
+    }
+    
+    if ([self.priorityInput.text isEqualToString:@""]) {
+        self.toDoObject.priorityNum = @"No Priority";
+    } else {
+        self.toDoObject.priorityNum = self.priorityInput.text;
+    }
+    
+    if ([self.descriptionInput.text isEqualToString:@""]) {
+        self.toDoObject.descript = @"No Description";
+    } else {
+        self.toDoObject.descript = self.descriptionInput.text;
+    }
+    
     self.toDoObject.deadline = self.datePicker.date;
-    [self.delegate updateInputInfo:self.toDoObject];
+    
+    [self.delegate updateInputInfo: self.toDoObject];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

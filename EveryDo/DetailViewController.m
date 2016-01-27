@@ -28,14 +28,16 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
+        
         Todo *toDoObject = (Todo *) self.detailItem;
         
         self.detailTitleLabel.text = toDoObject.title;
         self.detailPriorityLabel.text = toDoObject.priorityNum;
         self.detailDescriptionTextView.text = toDoObject.descript;
+        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm"];
-        self.detailDateLabel.text = [dateFormatter stringFromDate:toDoObject.deadline];
+        self.detailDateLabel.text = [dateFormatter stringFromDate: toDoObject.deadline];
     }
 }
 
