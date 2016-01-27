@@ -16,6 +16,7 @@
 //@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailPriorityLabel;
 @property (strong, nonatomic) IBOutlet UITextView *detailDescriptionTextView;
+@property (strong, nonatomic) IBOutlet UILabel *detailDateLabel;
 
 
 @end

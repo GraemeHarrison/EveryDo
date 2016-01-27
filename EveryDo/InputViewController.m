@@ -52,6 +52,7 @@
     self.toDoObject.title = self.titleInput.text;
     self.toDoObject.priorityNum = self.priorityInput.text;
     self.toDoObject.descript = self.descriptionInput.text;
+    self.toDoObject.deadline = self.datePicker.date;
     [self.delegate updateInputInfo:self.toDoObject];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

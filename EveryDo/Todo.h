@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *descript;
 @property (nonatomic, strong) NSString *priorityNum;
 @property (nonatomic, assign) BOOL isComplete;
+@property (nonatomic, assign) NSDate *deadline;
 
 -(instancetype)initWithTitle:(NSString *)title description:(NSString *)descript priorityNum:(NSString*)num;
 

@@ -42,6 +42,7 @@
 
     [self.objects addObjectsFromArray:@[partyHard, installHotTub, bossOut, flossOnEm, moonWalk, walkDog]];
 
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,7 +69,14 @@
     } else {
         selectedToDo.isComplete = NO;
     }
-    [self.tableView reloadData];
+    [UIView transitionWithView:self.tableView
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^(void)
+     {
+         [self.tableView reloadData];
+     }
+                    completion:nil];
 }
 
 #pragma mark - Segues
@@ -106,6 +114,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ToDoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
 
+    NSSortDescriptor *completedSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"isComplete" ascending:YES];
+    self.objects = [[self.objects sortedArrayUsingDescriptors:@[completedSortDescriptor] ]mutableCopy];
+    
 //    NSDate *object = self.objects[indexPath.row];
 //    cell.textLabel.text = [object description];
 

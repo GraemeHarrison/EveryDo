@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *descriptionInput;
 @property (weak, nonatomic) id <InputViewControllerDelegate> delegate;
 @property (strong, nonatomic) Todo *toDoObject;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
